@@ -9,18 +9,27 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - [x] Node
 
 > ### Blueprint
-- [x] Installing Angular
-  - [x] installing angular cli
-- [x] Creating angular app
-  - [x] create new application with ng
-  - [x] jquery,popper.js & bootstrap install
-  - [x] configure angular.json with above dependancies path
-  - [x] check everything is setup correctly ng serve --o
-- [ ] Frontend Creating Weather Component Search & Display
+- [ ] Frontend
+   - [x] Installing Angular
+     - [x] installing angular cli
+   - [x] Creating angular app
+     - [x] create new application with ng
+     - [x] jquery,popper.js & bootstrap install
+     - [x] configure angular.json with above dependancies path
+     - [x] check everything is setup correctly ng serve --o
+   - [ ] Creating Weather Component Search & Display
   - [x] ng generate component weather
   - [x] set up custom route in route.ts & config app.module.ts,app.component.html  to access the weather component.
-  - [x] basic Styling with bootstrap for UI of App.
-  - [ ] Setting Up form via @angular/forms
+  - [x] basic Styling with bootstrap for UI of App
+  - [x] Setting Up form via @angular/forms
+  - [x] Creating Separate 'ng g service apiow' Angular service for making the HTTP request to the openweather API via @angular/common/http HttpClientModule
+  - [ ] fetching data from openAPI and displaying the weather.
+
+> ## Some Intresting things I discovered during Development
+- [x] Set "strictPropertyInitialization": false in tsconfig.json to prevent the constructor initialization error during compilation in angular.
+- [x] Set "strict": true,
+"noImplicitAny":false to avoid the Parameter implicitely has an any type error.
+- [x] In Angular, if you want to use a service that you have created, you need to specify that service as a provider within your module.ts file, The decorating of the service as @Injectable allows you to inject this service within the constructor.
 
 ## Development server
 

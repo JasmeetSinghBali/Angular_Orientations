@@ -8,6 +8,8 @@ import {RouterModule} from '@angular/router';
 import {allAppRoutes} from './routes';
 
 import {ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {ApiowService} from './apiow.service';
 
 @NgModule({
   declarations: [
@@ -17,9 +19,10 @@ import {ReactiveFormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     RouterModule.forRoot(allAppRoutes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiowService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
