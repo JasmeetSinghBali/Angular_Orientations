@@ -14,6 +14,9 @@ export class WeatherComponent implements OnInit {
   public weatherData: any;
   public weatherTimezone: any;
 
+
+
+
   constructor(
     private formBuilder:FormBuilder,
     private apiowService:ApiowService
@@ -21,7 +24,6 @@ export class WeatherComponent implements OnInit {
 
   ngOnInit(): void {
     this.weatherSearchForm=this.formBuilder.group({
-      city:['New Delhi'],
       lat:['28.6139'],
       lon:['77.2090']
     });
@@ -53,15 +55,5 @@ export class WeatherComponent implements OnInit {
     console.log(this.weatherCondition);
     console.log(this.weatherData);
     console.log(this.weatherTimezone);
-
-
-
-
-
-
-
-
-
-
   }
 }

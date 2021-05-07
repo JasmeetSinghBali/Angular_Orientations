@@ -23,7 +23,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
   - [x] basic Styling with bootstrap for UI of App
   - [x] Setting Up form via @angular/forms
   - [x] Creating Separate 'ng g service apiow' Angular service for making the HTTP request to the openweather API via @angular/common/http HttpClientModule
-  - [ ] fetching data from openAPI and displaying the weather.
+  - [x] fetching data from openAPI and displaying the weather.
+  - [ ] Maintain Search history
 
 > ## Some Intresting things I discovered during Development
 - [x] Set "strictPropertyInitialization": false in tsconfig.json to prevent the constructor initialization error during compilation in angular.
