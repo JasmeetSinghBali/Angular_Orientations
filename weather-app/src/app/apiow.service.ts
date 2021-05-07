@@ -9,9 +9,9 @@ export class ApiowService {
 
   constructor(private http:HttpClient) { }
 
-  getWeather(city,lat,lon){
+  getWeather(lat,lon){
     return this.http.get(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${environment.apikey}`
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${environment.apikey}&units=metric`
     );
   }
 }

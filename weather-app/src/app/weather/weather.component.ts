@@ -12,6 +12,7 @@ export class WeatherComponent implements OnInit {
   // refference to the form to perform any related action
   public weatherCondition: any;
   public weatherData: any;
+  public weatherTimezone: any;
 
   constructor(
     private formBuilder:FormBuilder,
@@ -30,17 +31,37 @@ export class WeatherComponent implements OnInit {
   sendToOneCall(formValues){
     //console.log(formValues);
     //data['current']['weather'][0].main
-    const {city,lat,lon}=formValues;
+
+    const {lat,lon}=formValues;
+
+    // Basic input check
+
+    if (!lat || !lon){
+       alert('Please Provide me the Latitudes and Longitudes');
+       return;
+    };
+
     this.apiowService
-    .getWeather(city,lat,lon)
+    .getWeather(lat,lon)
     .subscribe(data=>{
       this.weatherCondition=data['current']['weather'][0];
       this.weatherData=data['current'];
+      this.weatherTimezone=data;
       //console.log('Inside' ,data)
     });
 
     console.log(this.weatherCondition);
     console.log(this.weatherData);
+    console.log(this.weatherTimezone);
+
+
+
+
+
+
+
+
+
 
   }
 }
