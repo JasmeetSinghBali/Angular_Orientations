@@ -22,7 +22,9 @@
 
   - [ ] Components
 
-    - [ ] Add user using angular reactive Form, should cover the following form elements - Input (text, email, name, phone number), select, text-area, creation date & time
+    - [x] Header component
+    - [x] Reusable Button component with Custom Output Event Emitter that triggers a function that ultimately loads a add user form
+    - [ ] Add user using angular reactive Form, should cover the following form elements - Input (email, name, phone number) & creation date & time
 
     - [ ] Show a List of all users using table - Make use of Observables, Promises, async await wherever necessary Table should have an edit option which will open a form with preloaded values of selected user
 
