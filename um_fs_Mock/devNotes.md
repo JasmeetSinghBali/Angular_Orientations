@@ -31,3 +31,5 @@
                 (click)="onclick"
 
 > **Important To make sure that the button component event is reusable use Output event emitter that sets the event dynamically so that this button can be reused a/c to that purpose/event refer button.component.ts & header.component.html,header.component.ts**
+
+next-> mock user and new user interface

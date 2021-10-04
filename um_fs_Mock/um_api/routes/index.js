@@ -18,7 +18,7 @@ router.post('/logout',auth,loginController.logout);
 // router.get('/user/:id',auth,userController.getsingle);
 // router.post('/user',[auth,admin],userController.store);
 // router.put('/user/:id',auth,userController.update);
-// router.delete('/user/:id',auth,userController.remove);
+// router.delete('/user/:id',[auth,admin],userController.remove);
 
 
 export default router;

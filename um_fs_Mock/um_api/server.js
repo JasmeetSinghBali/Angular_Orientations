@@ -6,19 +6,24 @@ const app = express();
 import routes from './routes';
 import mongoose from 'mongoose';
 
+// Test Route
+app.get('/',(req,res)=>{
+    res.status(200).json({
+        message: '✔ Up & Running..🦨',
+        hint: 'valid routes prefixed with /api'
+    })
+})
 
 // 🔋 DB connections 
 mongoose.connect(DB_URL,
     {
       useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false
+      useUnifiedTopology: true
     })
-    .then(() => console.log('------MongoDB Connected-----'))
+    .then(() => console.log('------✨MongoDB Connected✨-----'))
     .catch(err => console.log(err));
 
-// 🎈 Middlewares
+// 🎈 Middlewares - ErrorHandler,Routes
 app.use(express.json());
 app.use(express.urlencoded({
     extended: false
@@ -29,5 +34,5 @@ app.use(errorHandler);
 
 
 app.listen(API_PORT,process.env.IP,()=>{
-    console.log(`🌠 Server running at PORT:${API_PORT}`);
+    console.log(`🌠 Server running at http://localhost:${API_PORT}`);
 });

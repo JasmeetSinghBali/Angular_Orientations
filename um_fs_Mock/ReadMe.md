@@ -11,12 +11,97 @@
 
 - [ ] um_api
 
-  - [ ] Login (POST)
-  - [ ] Signup (POST)
+  - [x] Custom Error Handler & JWT as Services
+  - [x] Login (POST)
+  - [x] Register (POST)
+  - [x] whoami (GET)
+  - [x] Refresh token (POST)
+  - [x] Logout/Terminate Refresh token stored in DB (POST)
   - [ ] Create User (POST)
   - [ ] Get user info (GET)
   - [ ] Edit user (PUT)
   - [ ] Delete user (DELETE)
+  - [ ] Extra's/AddOn's
+    - [ ] Rate limiters
+    - [ ] cluster
+    - [ ] load tester
+
+> ### API Endpoints
+
+> REGISTER (POST) http://localhost:5000/api/register
+> **By default creates a user with role as customer**
+
+                      # request body raw json
+                      {
+                            "name": "John",
+                            "email": "John@doe.co",
+                            "password": "Jagtamba@007",
+                            "repeat_password":"Jagtamba@007"
+                      }
+
+                      # 200 response
+                      {
+                        "access_token": "...",
+                        "refresh_token": "..."
+                      }
+
+> LOGIN (POST) http://localhost:5000/api/login
+
+                        # request body raw json
+                        {
+                            "email":"John@doe.co",
+                            "password":"Jagtamba@007"
+                        }
+                        # 200 response
+                        {
+                          "access_token": "..."
+                        }
+
+> WHOAMI (GET) http://localhost:5000/api/whoami
+
+**Requires Access Token (received after LOGIN route is hit)**
+
+                        # request header
+                        authorization: Bearer Accesstoken
+
+                        # 200 response
+                        {
+                          "_id": "715ada89ui682143f6293",
+                          "name": "John",
+                          "email": "John@doe.co",
+                          "role": "Customer",
+                          "createdAt": "2021-10-04T10:42:14.416Z"
+                        }
+
+> REFRESH (POST) http://localhost:5000/api/refresh
+
+**Requires Refresh Token (received after LOGIN route is hit)**
+
+                        # request body json raw
+                        {
+                            "refresh_token": "..."
+                        }
+                        # 200 response
+                        {
+                            "access_token": "..."
+                            "refresh_token": "..."
+                        }
+
+> LOGOUT(removes Whitelisted Refresh Tokens from DB) (POST) http://localhost:5000/api/logout
+
+**Requires Refresh & Access Token (received after LOGIN route is hit)**
+
+                        # request body json raw
+                        {
+                            "refresh_token": "..."
+                        }
+                        # request body header
+                        authorization: Bearer AccessToken
+
+                        # 200 response
+                        {
+                          "status": "User Logged Out, refresh token removed!!"
+                        }
 
 - [ ] umDashboard
 
