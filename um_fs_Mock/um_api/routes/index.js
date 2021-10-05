@@ -16,7 +16,7 @@ router.post('/logout',auth,loginController.logout);
 // ✔ userManagment routes CRUD
 // router.get('/user',[auth,admin],userController.getall);
 // router.get('/user/:id',auth,userController.getsingle);
-// router.post('/user',[auth,admin],userController.store);
+router.post('/user',[auth,admin],userController.store);
 // router.put('/user/:id',auth,userController.update);
 // router.delete('/user/:id',[auth,admin],userController.remove);
 

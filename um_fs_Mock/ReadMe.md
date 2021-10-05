@@ -17,7 +17,8 @@
   - [x] whoami (GET)
   - [x] Refresh token (POST)
   - [x] Logout/Terminate Refresh token stored in DB (POST)
-  - [ ] Create User (POST)
+  - [x] Create User (POST)
+    - [x] admin only
   - [ ] Get user info (GET)
   - [ ] Edit user (PUT)
   - [ ] Delete user (DELETE)
@@ -102,6 +103,24 @@
                         {
                           "status": "User Logged Out, refresh token removed!!"
                         }
+
+---
+
+> ## CRUD User Managment Routes
+
+> CREATE NEW USER(ADMIN ONLY) (POST) http://localhost:5000/api/user
+
+**Requires Access Token (received after LOGIN route is hit)**
+
+                            # req-header
+                            authorization: Bearer AccessToken
+                            # req-body json raw
+                            {
+                                "name":"XYZ",
+                                "email":"XYZ@abc.com",
+                                "password":"12345",
+                                "role":"customer"
+                            }
 
 - [ ] umDashboard
 
