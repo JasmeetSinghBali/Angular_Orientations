@@ -5,11 +5,13 @@
   "main": "server.js",
   "scripts": {
     "start": "node -r esm server.js",
-    "dev": "nodemon -r esm server.js"
+    "dev": "nodemon -r esm server.js",
+    "scaletest": "loadtest -n 1000 -c 100 http://localhost:5000/"
   },
   "author": "Jasmeet",
   "license": "ISC",
   "devDependencies": {
+    "loadtest": "^5.1.2",
     "nodemon": "^2.0.13"
   },
   "dependencies": {
@@ -17,6 +19,7 @@
     "dotenv": "^10.0.0",
     "esm": "^3.2.25",
     "express": "^4.17.1",
+    "express-rate-limit": "^5.4.1",
     "joi": "^17.4.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.8"

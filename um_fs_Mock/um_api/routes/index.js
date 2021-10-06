@@ -5,20 +5,20 @@ import {registerController,loginController,refreshController,whoamiController,us
 
 import auth from '../middlewares/auth';
 import admin from '../middlewares/admin';
+import limiter from '../middlewares/rateLimiter';
 
 // ✔ Auth Routes
-router.post('/register',registerController.register);
-router.post('/login',loginController.login);
-router.get('/whoami',auth,whoamiController.me);
-router.post('/refresh',refreshController.refresh);
-router.post('/logout',auth,loginController.logout);
+router.post('/register',limiter,registerController.register);
+router.post('/login',limiter,loginController.login);
+router.get('/whoami',[limiter,auth],whoamiController.me);
+router.post('/refresh',limiter,refreshController.refresh);
+router.post('/logout',[limiter,auth],loginController.logout);
 
-// ✔ userManagment routes CRUD
-// router.get('/user',[auth,admin],userController.getall);
-// router.get('/user/:id',auth,userController.getsingle);
-router.post('/user',[auth,admin],userController.store);
-// router.put('/user/:id',auth,userController.update);
-// router.delete('/user/:id',[auth,admin],userController.remove);
+// ✔ userManagment routes CRU
+router.get('/user',[limiter,auth,admin],userController.getall);
+router.post('/user',[limiter,auth,admin],userController.store);
+router.put('/user/:id',[limiter,auth],userController.update);
+
 
 
 export default router;

@@ -9,7 +9,7 @@
 
 > ### Blueprint
 
-- [ ] um_api
+- [x] um_api
 
   - [x] Custom Error Handler & JWT as Services
   - [x] Login (POST)
@@ -19,13 +19,11 @@
   - [x] Logout/Terminate Refresh token stored in DB (POST)
   - [x] Create User (POST)
     - [x] admin only
-  - [ ] Get user info (GET)
-  - [ ] Edit user (PUT)
-  - [ ] Delete user (DELETE)
-  - [ ] Extra's/AddOn's
-    - [ ] Rate limiters
-    - [ ] cluster
-    - [ ] load tester
+  - [x] Edit user (PUT)
+  - [x] Extra's/AddOn's
+    - [x] Rate limiters
+    - [x] cluster
+    - [x] load tester
 
 > ### API Endpoints
 
@@ -121,6 +119,30 @@
                                 "password":"12345",
                                 "role":"customer"
                             }
+
+> UPDATE EXISTING USER (User & Admin) (PUT) http://localhost:5000/api/user/:id
+
+**Requires Access Token (received after LOGIN route is hit)**
+**id can be retrived by hitting the whoami route by normal users**
+
+                            # req-header
+                            authorization: Bearer AccessToken
+                            # req-body json raw
+                            {
+                                "name":"UpdatedName",
+                                "email":"UpdatedEmail",
+                                "password":"t12345@ISss",
+                                "role":"UpdatedRole"
+                            }
+                            # req-params (user id whose name,email,password,role you want to change)
+                            :id
+
+> ALL USERS http://localhost:5000/api/user (GET) (ADMIN ONLY)
+
+                            # req-header
+                            authorization: Bearer AccessToken
+
+**Requires Access Token (received after LOGIN route is hit)**
 
 - [ ] umDashboard
 
