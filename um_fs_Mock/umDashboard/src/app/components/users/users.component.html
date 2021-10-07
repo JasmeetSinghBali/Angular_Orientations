@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col s12">
+    <div class="card">
+      <div class="card-content white-text">
+        <div class="row">
+          <div class="col s5">
+            <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="name" #name="ngModel" [(ngModel)]="userService.selectedUser.name" placeholder="Enter User Name">
+                  <label>Name :
+                    <label class="red-text">*</label>
+                  </label>
+                </div>
+                <div class="input-field col s12">
+                  <input type="text" name="email" #name="ngModel" [(ngModel)]="userService.selectedUser.email" placeholder="Enter Email">
+                  <label>Email :
+                    <label class="red-text">*</label>
+                  </label>
+                </div>
+                <div class="input-field col s12">
+                  <input type="password" name="password" #name="ngModel" [(ngModel)]="userService.selectedUser.password" placeholder="Enter password">
+                  <label>Password :
+                    <label class="red-text">*</label>
+                  </label>
+                </div>
+                <div class="input-field col s12">
+                  <input type="text" name="role" #name="ngModel" [(ngModel)]="userService.selectedUser.role" placeholder="Enter role">
+                  <label>Role :
+                    <label class="red-text">*</label>
+                  </label>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col s7">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
